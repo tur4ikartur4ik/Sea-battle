@@ -1,0 +1,20 @@
+[Игрок кликнул]
+    │
+    v
+on_enemy_board_click
+    |─> изменение enemy_board
+    |─> check_victory
+    |─> delayed_enemy_turn
+           |
+           v
+     enemy_turn
+        |─> smart_ai_target / random_ai_target
+        |─> попадание -> ai_targets.append
+        |─> is_sunk -> mark_as_sunk -> ai_forbidden
+        |─> изменение player_board 
+           |
+	   v
+    draw_board + check_victory
+           |
+           v
+    Возврат хода игроку
